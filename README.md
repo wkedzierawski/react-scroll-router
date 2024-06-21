@@ -79,6 +79,21 @@ export const useScrollRouter: () => {
 | replaceHistory | `Function` | Function to manual replace history state |
 | pushHistory    | `Function` | Function to manual push history state    |
 
+### useScrollToRoute()
+
+```ts
+export const useScrollToRoute: () => (route: string) => void;
+```
+
+#### Returns `Function` that can scroll your page to the selected route
+
+```jsx harmony
+  const scrollToRoute = useScrollToRoute()
+  
+  <button onClick={()=> scrollToRoute('/section')} />
+```
+
+
 ## LICENSE
 
 MIT
