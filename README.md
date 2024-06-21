@@ -82,17 +82,17 @@ export const useScrollRouter: () => {
 ### useScrollToRoute()
 
 ```ts
-export const useScrollToRoute: () => (route: string) => void;
+export const useScrollToRoute: () => ({route: string; scrollOptions?: ScrollIntoViewOptions}) => void;
 ```
 
 #### Returns `Function` that can scroll your page to the selected route
 
 ```jsx harmony
   const scrollToRoute = useScrollToRoute()
-  
-  <button onClick={()=> scrollToRoute('/section')} />
-```
+  const scrollOptions = {behavior = "smooth"} // By default behavior value is set to "smooth"
 
+  <button onClick={()=> scrollToRoute({route:'/section', scrollOptions})} />
+```
 
 # LICENSE
 

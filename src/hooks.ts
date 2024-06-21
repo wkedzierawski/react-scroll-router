@@ -1,6 +1,6 @@
 import { useCallback, useContext } from "react";
 import { ScrollContext } from "./Provider";
-import { ScrollEvent, ScrollRouter } from "./Router";
+import { ScrollEvent, ScrollEventPayload, ScrollRouter } from "./Router";
 
 export const useScrollRouter = () => {
   const { route, setRoute } = useContext(ScrollContext);
@@ -41,9 +41,12 @@ export const useScrollRouter = () => {
 };
 
 export const useScrollToRoute = () => {
-  const scrollToRoute = useCallback((route: string) => {
-    ScrollRouter.dispatchEvent(ScrollEvent.SCROLL_TO_ROUTE, route);
-  }, []);
+  const scrollToRoute = useCallback(
+    (payload: ScrollEventPayload[ScrollEvent.SCROLL_TO_ROUTE]) => {
+      ScrollRouter.dispatchEvent(ScrollEvent.SCROLL_TO_ROUTE, payload);
+    },
+    []
+  );
 
   return scrollToRoute;
 };

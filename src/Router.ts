@@ -3,7 +3,10 @@ export enum ScrollEvent {
 }
 
 export type ScrollEventPayload = {
-  [ScrollEvent.SCROLL_TO_ROUTE]: string;
+  [ScrollEvent.SCROLL_TO_ROUTE]: {
+    route: string;
+    scrollOptions?: ScrollIntoViewOptions;
+  };
 };
 
 export type HistoryState = {
