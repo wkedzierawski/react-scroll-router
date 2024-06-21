@@ -40,10 +40,10 @@ export const useScrollRouter = () => {
   return { route, replaceHistory, pushHistory };
 };
 
-export const useScrollRouteEvents = () => {
+export const useScrollToRoute = () => {
   const scrollToRoute = useCallback((route: string) => {
     ScrollRouter.dispatchEvent(ScrollEvent.SCROLL_TO_ROUTE, route);
   }, []);
 
-  return { scrollToRoute };
+  return scrollToRoute;
 };
