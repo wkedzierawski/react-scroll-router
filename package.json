@@ -1,6 +1,6 @@
 {
   "name": "react-scroll-router",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -10,15 +10,18 @@
   },
   "homepage": "https://github.com/wkedzierawski/react-scroll-router#readme",
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "prepublish": "yarn build",
+    "publish": "npm publish"
   },
   "author": "Wiktor Kędzierawski",
   "license": "MIT",
   "description": "Simple React router based on scrolling page",
   "keywords": [
-    "React",
-    "React Router",
-    "React Scroll Router"
+    "react",
+    "react router",
+    "scroll",
+    "react-scroll-router"
   ],
   "dependencies": {
     "react": "^18.3.1",
