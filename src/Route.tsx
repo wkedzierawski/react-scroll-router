@@ -59,9 +59,11 @@ export const ScrollRoute = memo(({ children, route }: Props) => {
   useEffect(() => {
     const removeListener = ScrollRouter.addListener(
       ScrollEvent.SCROLL_TO_ROUTE,
-      ({ detail: payload = { scrollOptions: { behavior: "smooth" } } }) => {
+      ({ detail: payload }) => {
         if (payload.route === route) {
-          ref.current?.scrollIntoView(payload.scrollOptions);
+          ref.current?.scrollIntoView(
+            payload.scrollOptions || { behavior: "smooth" }
+          );
         }
       }
     );
