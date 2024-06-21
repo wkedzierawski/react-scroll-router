@@ -61,9 +61,8 @@ export const ScrollRoute = memo(({ children, route }: Props) => {
       ScrollEvent.SCROLL_TO_ROUTE,
       ({ detail: payload }) => {
         if (payload.route === route) {
-          ref.current?.scrollIntoView(
-            payload.scrollOptions || { behavior: "smooth" }
-          );
+          const scrollOptions = payload.scrollOptions || { behavior: "smooth" };
+          ref.current?.scrollIntoView(scrollOptions);
         }
       }
     );

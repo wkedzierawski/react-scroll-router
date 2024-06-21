@@ -89,7 +89,7 @@ export const useScrollToRoute: () => ({route: string; scrollOptions?: ScrollInto
 
 ```jsx harmony
   const scrollToRoute = useScrollToRoute()
-  const scrollOptions = {behavior = "smooth"} // By default behavior value is set to "smooth"
+  const scrollOptions = {behavior: "smooth"} // By default behavior value is set to "smooth"
 
   <button onClick={()=> scrollToRoute({route:'/section', scrollOptions})} />
 ```
