@@ -59,7 +59,7 @@ function App() {
 }
 ```
 
-## API
+# API
 
 ### useScrollRouter()
 
@@ -94,6 +94,6 @@ export const useScrollToRoute: () => (route: string) => void;
 ```
 
 
-## LICENSE
+# LICENSE
 
 MIT
