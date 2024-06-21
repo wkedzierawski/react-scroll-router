@@ -21,7 +21,23 @@ export const useScrollRouter = () => {
     [setRoute]
   );
 
-  return { route, replaceHistory };
+  const pushHistory = useCallback(
+    (nextRoute: string) => {
+      const state = ScrollRouter.getHistoryState();
+      if (state?.route === nextRoute) {
+        return;
+      }
+
+      setRoute(nextRoute);
+
+      const url = new URL(window.location.href);
+      url.pathname = nextRoute;
+      history.pushState({ route: nextRoute }, "", url.href);
+    },
+    [setRoute]
+  );
+
+  return { route, replaceHistory, pushHistory };
 };
 
 export const useScrollRouteEvents = () => {
