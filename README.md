@@ -23,6 +23,8 @@
 
 A React package for routing between sections on a single page application
 
+[CodeSandbox demo](https://codesandbox.io/p/sandbox/react-scroll-router-demo-6n8sx4)
+
 # Quick Start
 
 ## Setup Provider
