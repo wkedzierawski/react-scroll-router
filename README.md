@@ -61,6 +61,34 @@ function App() {
 }
 ```
 
+# Components
+
+```jsx harmony
+<ScrollProvider .../>
+```
+
+#### Props
+
+| Prop           | Type       | Description                              | Required |
+| -------------- | ---------- | ---------------------------------------- | -------- |
+| defaultRoute   | `string`   | Default route                            | :white_check_mark: |
+
+<hr/>
+
+```jsx harmony
+<ScrollRoute .../>
+```
+
+#### Props
+
+| Prop           | Type       | Description                              | Required |
+| -------------- | ---------- | ---------------------------------------- |  ------  |
+| route          | `string`   | Route name                               |  :white_check_mark: |
+| children       | `ReactNode`| Route content                            |  :white_check_mark: |
+| containerStyle | `React.CSSProperties`| Additonal styles applied to container |   |
+
+<hr/>
+
 # API
 
 ### useScrollRouter()
