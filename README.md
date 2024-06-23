@@ -38,7 +38,7 @@ import { ScrollProvider } from "react-scroll-router";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ScrollProvider defaultRoute={'/'}>
+    <ScrollProvider defaultRoute='/'>
       <App />
     </ScrollProvider>
   </React.StrictMode>
@@ -53,9 +53,9 @@ import { ScrollRoute } from "react-scroll-router";
 function App() {
   return (
     <div>
-      <ScrollRoute route={"/"} children={<ExampleHeaderComponent />} />
-      <ScrollRoute route={"/section"} children={<ExampleSectionComponent />} />
-      <ScrollRoute route={"/footer"} children={<ExampleFooterComponent3 />} />
+      <ScrollRoute route="/" children={<ExampleHeaderComponent />} />
+      <ScrollRoute route="/section" children={<ExampleSectionComponent />} />
+      <ScrollRoute route="/footer" children={<ExampleFooterComponent />} />
     </div>
   );
 }
@@ -72,6 +72,7 @@ function App() {
 | Prop           | Type       | Description                              | Required |
 | -------------- | ---------- | ---------------------------------------- | -------- |
 | defaultRoute   | `string`   | Default route                            | :white_check_mark: |
+| options   | `ScrollRouterOptions`   | Configuration options for react-scroll-router |  |
 
 <hr/>
 
