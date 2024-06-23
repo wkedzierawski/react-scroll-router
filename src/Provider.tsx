@@ -15,7 +15,7 @@ const defaultOptions: ScrollRouterOptions = {
 type Props = {
   children: JSX.Element;
   defaultRoute: string;
-  options: ScrollRouterOptions;
+  options?: ScrollRouterOptions;
 };
 
 type ScrollContextType = {
