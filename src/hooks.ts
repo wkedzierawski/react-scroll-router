@@ -3,7 +3,7 @@ import { ScrollContext } from "./Provider";
 import { ScrollEvent, ScrollEventPayload, ScrollRouter } from "./Router";
 
 export const useScrollRouter = () => {
-  const { route, setRoute } = useContext(ScrollContext);
+  const { route, setRoute, options } = useContext(ScrollContext);
 
   const replaceHistory = useCallback(
     (nextRoute: string) => {
@@ -37,7 +37,7 @@ export const useScrollRouter = () => {
     [setRoute]
   );
 
-  return { route, replaceHistory, pushHistory };
+  return { route, replaceHistory, pushHistory, options };
 };
 
 export const useScrollToRoute = () => {

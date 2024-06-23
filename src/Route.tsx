@@ -10,13 +10,11 @@ type Props = {
   containerStyle?: React.CSSProperties;
 };
 
-const safetyMargin = -10;
-
 export const ScrollRoute = memo(
   ({ children, route, containerStyle }: Props) => {
     const ref = useRef<HTMLDivElement | null>(null);
 
-    const { replaceHistory } = useScrollRouter();
+    const { replaceHistory, options } = useScrollRouter();
 
     const onPageScroll = useCallback(() => {
       if (!ref.current) {
@@ -33,8 +31,8 @@ export const ScrollRoute = memo(
 
       const currentSection = isBetween(
         offsetFromTop,
-        0 + safetyMargin,
-        dimensions.height + safetyMargin
+        0 + options.offset,
+        dimensions.height + options.offset
       );
 
       currentSection && replaceHistory(route);
