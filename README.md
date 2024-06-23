@@ -64,29 +64,29 @@ function App() {
 # Components
 
 ```jsx harmony
-<ScrollProvider .../>
+<ScrollProvider ... />
 ```
 
 #### Props
 
-| Prop           | Type       | Description                              | Required |
-| -------------- | ---------- | ---------------------------------------- | -------- |
-| defaultRoute   | `string`   | Default route                            | :white_check_mark: |
-| options   | `ScrollRouterOptions`   | Configuration options for react-scroll-router |  |
+| Prop         | Type                  | Description                                                                              | Required           |
+| ------------ | --------------------- | ---------------------------------------------------------------------------------------- | ------------------ |
+| defaultRoute | `string`              | Default route                                                                            | :white_check_mark: |
+| options      | `ScrollRouterOptions` | Configuration options for react-scroll-router. It partially overrides the default values |                    |
 
 <hr/>
 
 ```jsx harmony
-<ScrollRoute .../>
+<ScrollRoute ... />
 ```
 
 #### Props
 
-| Prop           | Type       | Description                              | Required |
-| -------------- | ---------- | ---------------------------------------- |  ------  |
-| route          | `string`   | Route name                               |  :white_check_mark: |
-| children       | `ReactNode`| Route content                            |  :white_check_mark: |
-| containerStyle | `React.CSSProperties`| Additonal styles applied to container |   |
+| Prop           | Type                  | Description                                | Required           |
+| -------------- | --------------------- | ------------------------------------------ | ------------------ |
+| route          | `string`              | Route name                                 | :white_check_mark: |
+| children       | `ReactNode`           | Route content                              | :white_check_mark: |
+| containerStyle | `React.CSSProperties` | Additional styles applied to the container |                    |
 
 <hr/>
 
@@ -97,18 +97,18 @@ function App() {
 ```ts
 export const useScrollRouter: () => {
   route: string;
-  replaceHistory: (nextRoute: string) => void;
-  pushHistory: (nextRoute: string) => void;
+  goToNextRoute: (nextRoute: string) => void;
+  options: ScrollRouterOptions;
 };
 ```
 
-#### Returns `{route,replaceHistory,pushHistory}`
+#### Returns `{route,goToNextRoute,options}`
 
-| Variable       | Type       | Description                              |
-| -------------- | ---------- | ---------------------------------------- |
-| route          | `string`   | The current route                        |
-| replaceHistory | `Function` | Function to manual replace history state |
-| pushHistory    | `Function` | Function to manual push history state    |
+| Variable      | Type                  | Description                                                                                                           |
+| ------------- | --------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| route         | `string`              | Current route                                                                                                         |
+| goToNextRoute | `Function`            | Function to manually navigate to the next route. Replace or push a new route depending on the `options.historyMethod` |
+| options       | `ScrollRouterOptions` | Options object provided in `<ScrollProvider ... />`                                                                   |
 
 ### useScrollToRoute()
 

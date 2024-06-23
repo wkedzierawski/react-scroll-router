@@ -14,7 +14,7 @@ export const ScrollRoute = memo(
   ({ children, route, containerStyle }: Props) => {
     const ref = useRef<HTMLDivElement | null>(null);
 
-    const { replaceHistory, options } = useScrollRouter();
+    const { goToNextRoute, options } = useScrollRouter();
 
     const onPageScroll = useCallback(() => {
       if (!ref.current) {
@@ -35,8 +35,8 @@ export const ScrollRoute = memo(
         dimensions.height + options.offset
       );
 
-      currentSection && replaceHistory(route);
-    }, [replaceHistory, route]);
+      currentSection && goToNextRoute(route);
+    }, [goToNextRoute, route]);
 
     const scrollActiveRouteIntoView = useCallback(() => {
       if (window.location.pathname !== route) {
