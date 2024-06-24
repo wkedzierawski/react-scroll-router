@@ -36,7 +36,7 @@ export const ScrollRoute = memo(
       );
 
       currentSection && goToNextRoute(route);
-    }, [goToNextRoute, route]);
+    }, [goToNextRoute, options.offset, route]);
 
     const scrollActiveRouteIntoView = useCallback(() => {
       if (window.location.pathname !== route) {
