@@ -22,7 +22,7 @@ export const useScrollRouter = () => {
         url.href
       );
     },
-    [setRoute]
+    [options.historyMethod, setRoute]
   );
 
   return { route, goToNextRoute, options };
