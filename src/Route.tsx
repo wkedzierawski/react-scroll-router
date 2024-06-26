@@ -8,10 +8,11 @@ type Props = {
   route: string;
   children: JSX.Element;
   containerStyle?: React.CSSProperties;
+  pageTitle?: string;
 };
 
 export const ScrollRoute = memo(
-  ({ children, route, containerStyle }: Props) => {
+  ({ children, route, containerStyle, pageTitle }: Props) => {
     const ref = useRef<HTMLDivElement | null>(null);
 
     const { goToNextRoute, options } = useScrollRouter();
@@ -35,8 +36,8 @@ export const ScrollRoute = memo(
         dimensions.height + options.offset
       );
 
-      currentSection && goToNextRoute(route);
-    }, [goToNextRoute, options.offset, route]);
+      currentSection && goToNextRoute(route, pageTitle);
+    }, [goToNextRoute, options.offset, pageTitle, route]);
 
     const scrollActiveRouteIntoView = useCallback(() => {
       if (window.location.pathname !== route) {
