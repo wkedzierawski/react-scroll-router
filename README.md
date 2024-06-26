@@ -38,7 +38,7 @@ import { ScrollProvider } from "react-scroll-router";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ScrollProvider defaultRoute='/'>
+    <ScrollProvider>
       <App />
     </ScrollProvider>
   </React.StrictMode>
@@ -54,7 +54,11 @@ function App() {
   return (
     <div>
       <ScrollRoute route="/" children={<ExampleHeaderComponent />} />
-      <ScrollRoute route="/section" children={<ExampleSectionComponent />} />
+      <ScrollRoute
+        route="/section"
+        children={<ExampleSectionComponent />}
+        pageTitle="Sample page title"
+      />
       <ScrollRoute route="/footer" children={<ExampleFooterComponent />} />
     </div>
   );
@@ -69,10 +73,10 @@ function App() {
 
 #### Props
 
-| Prop         | Type                  | Description                                                                              | Required           |
-| ------------ | --------------------- | ---------------------------------------------------------------------------------------- | ------------------ |
-| defaultRoute | `string`              | Default route                                                                            | :white_check_mark: |
-| options      | `ScrollRouterOptions` | Configuration options for react-scroll-router. It partially overrides the default values |                    |
+| Prop         | Type                  | Description                                                                              | Required |
+| ------------ | --------------------- | ---------------------------------------------------------------------------------------- | -------- |
+| defaultRoute | `string`              | Default route - by default set to `'/'`                                                  |          |
+| options      | `ScrollRouterOptions` | Configuration options for react-scroll-router. It partially overrides the default values |          |
 
 <hr/>
 
@@ -97,7 +101,7 @@ function App() {
 ```ts
 export const useScrollRouter: () => {
   route: string;
-  goToNextRoute: (nextRoute: string) => void;
+  goToNextRoute: (nextRoute: string, pageTitle?: string) => void;
   options: ScrollRouterOptions;
 };
 ```

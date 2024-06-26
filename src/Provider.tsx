@@ -16,16 +16,24 @@ export type ScrollRouterOptions = {
    *  @defaultValue `replace`
    */
   historyMethod: "push" | "replace";
+  /** Default page title to fallback if `<Route pageTitle={...} />` is not provided
+   *  @defaultValue `document.title`
+   */
+  pageTitle: string;
 };
 
 const defaultOptions: ScrollRouterOptions = {
   offset: -10,
   historyMethod: "replace",
+  pageTitle: document.title,
 };
 
 type Props = {
   children: JSX.Element;
-  defaultRoute: string;
+  /**
+   * @defaultValue `'/'`
+   */
+  defaultRoute?: string;
   options?: DeepPartial<ScrollRouterOptions>;
 };
 
@@ -39,7 +47,7 @@ export const ScrollContext = createContext({} as ScrollContextType);
 
 export const ScrollProvider = ({
   children,
-  defaultRoute,
+  defaultRoute = "/",
   options = {},
 }: Props) => {
   const [route, setRoute] = useState<string>(defaultRoute);

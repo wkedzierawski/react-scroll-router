@@ -1,18 +1,20 @@
 import { useCallback, useContext } from "react";
 import { ScrollContext } from "./Provider";
 import { ScrollEvent, ScrollEventPayload, ScrollRouter } from "./Router";
+import { changePageTitle } from "./utils";
 
 export const useScrollRouter = () => {
   const { route, setRoute, options } = useContext(ScrollContext);
 
   const goToNextRoute = useCallback(
-    (nextRoute: string) => {
+    (nextRoute: string, pageTitle?: string) => {
       const state = ScrollRouter.getHistoryState();
       if (state?.route === nextRoute) {
         return;
       }
 
       setRoute(nextRoute);
+      changePageTitle(pageTitle ?? options.pageTitle);
 
       const url = new URL(window.location.href);
       url.pathname = nextRoute;
@@ -22,7 +24,7 @@ export const useScrollRouter = () => {
         url.href
       );
     },
-    [options.historyMethod, setRoute]
+    [options.pageTitle, options.historyMethod, setRoute]
   );
 
   return { route, goToNextRoute, options };
